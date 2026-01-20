@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>그리즐리</title>
+</head>
+<body>
+    <button style="width:200px; height:100px;" onclick="send()"></button>
+    <input type="text" id="stat">
+    <button style="width:200px; height:100px;" onclick="send2()"></button>
+
+    <h2 id="re"></h2>
+
+    <script>
+        function send(){
+            fetch('/process',{method:'POST'})
+            .then(response => response.json())
+            .then(data => {document.getElementById('re').innerText=data.message})
+            .catch(error => {document.getElementById('re').innerText="오류"+error;})
+        }
+
+        function send2(){
+            const stat=document.getElementById('stat').value;
+
+            fetch('/process2',{method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({stat:stat})})
+            .then(response => response.json())
+            .then(data => {document.getElementById('re').innerText=data.message})
+            .catch(error => {document.getElementById('re').innerText="오류"+error;})
+
+        }
+
+    </script>
+</body>
+</html>
