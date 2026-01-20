@@ -41,9 +41,9 @@ def gsg():
     g=random.randrange(1, 101)
     
     if(g==1):
-        msg=f"대성공(g)"
+        msg=f"대성공({g})"
     elif(g==99 or g==100):
-        msg=f"대실패(g)"
+        msg=f"대실패({g})"
     elif(stat*14<g):
         msg=f"실패({g})"
     elif(stat*14>=g):
@@ -53,4 +53,5 @@ def gsg():
             if((stat*14)/5>g):
                 msg=f"극단적 성공({g})"
     
+
     return jsonify({'message':msg})
