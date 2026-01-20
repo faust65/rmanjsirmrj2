@@ -15,7 +15,7 @@
 
     <script>
         function send(){
-            fetch('/process',{method:'POST'})
+            fetch('/rl',{method:'POST'})
             .then(response => response.json())
             .then(data => {document.getElementById('re').innerText=data.message})
             .catch(error => {document.getElementById('re').innerText="오류"+error;})
@@ -24,7 +24,7 @@
         function send2(){
             const stat=document.getElementById('stat').value;
 
-            fetch('/process2',{method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({stat:stat})})
+            fetch('/gsg',{method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({stat:stat})})
             .then(response => response.json())
             .then(data => {document.getElementById('re').innerText=data.message})
             .catch(error => {document.getElementById('re').innerText="오류"+error;})
@@ -35,3 +35,4 @@
 </body>
 
 </html>
+
